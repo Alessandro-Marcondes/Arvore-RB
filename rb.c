@@ -44,35 +44,14 @@ struct NO* rotDireita(struct NO* A){
 	return B;
 }
 
-/*
-struct NO* move2EsqRED(struct NO* h){
-	trocaCor(h);
-	if(cor(h->dir->esq) == RED){
-		h->dir = rotDireita(h->dir);
-		h = rotEsquerda(h);
-		trocaCor(h);
-	}
-	return h;
-}
 
-
-struct NO* move2DirRED(struct NO* h){
-	trocaCor(h);
-	if(cor(h->esq->dir) == RED){
-		h = rotDireita(h);
-		trocaCor(h);
-	}
-	return h;
-}
-
-*/
 
 struct NO* balancear(struct NO* h){
 	if(cor(h->dir) == RED){
-	 h = rotEsquerda(h); //nÃ³ vermelho Ã© sempre filho esquerdo
+	 h = rotEsquerda(h); //nó vermelho é sempre filho esquerdo
 	}
 	if(h->esq !=NULL && cor(h->dir) == RED && cor(h->esq->esq) == RED){
-		h = rotDireita(h); //Filho direito e neto esquerdo sÃ£o vermelhos
+		h = rotDireita(h); //Filho direito e neto esquerdo são vermelhos
 	}
 	if(cor(h->esq) == RED && cor(h->dir) == RED){
 		trocaCor(h); //2 filhos vermelhos troca a cor
