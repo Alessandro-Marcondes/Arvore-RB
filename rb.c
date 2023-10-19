@@ -69,10 +69,10 @@ struct NO* move2DirRED(struct NO* h){
 
 struct NO* balancear(struct NO* h){
 	if(cor(h->dir) == RED){
-	 h = rotEsquerda(h); //nó vermelho é sempre filho esquerdo
+	 h = rotEsquerda(h); //nÃ³ vermelho Ã© sempre filho esquerdo
 	}
 	if(h->esq !=NULL && cor(h->dir) == RED && cor(h->esq->esq) == RED){
-		h = rotDireita(h); //Filho direito e neto esquerdo são vermelhos
+		h = rotDireita(h); //Filho direito e neto esquerdo sÃ£o vermelhos
 	}
 	if(cor(h->esq) == RED && cor(h->dir) == RED){
 		trocaCor(h); //2 filhos vermelhos troca a cor
