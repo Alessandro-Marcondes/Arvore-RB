@@ -17,6 +17,7 @@ int cor (struct NO* h){
 //Inverte a cor do pai e dos filhos
 void trocaCor(struct NO* h){
 	h->cor = !h->cor;
+	printf("\n Troca de cor");
 	if(h->esq != NULL){
 		h->esq->cor = !h->esq->cor;
 	}
@@ -27,6 +28,7 @@ void trocaCor(struct NO* h){
 
 
 struct NO* rotEsquerda(struct NO* A){
+	printf("\n Rotação a esquerda");
 	struct NO* B = A->dir;
 	A->dir = B->esq;
 	B->esq = A;
@@ -36,6 +38,7 @@ struct NO* rotEsquerda(struct NO* A){
 }
 
 struct NO* rotDireita(struct NO* A){
+	printf("\n Rotação a direita");
 	struct NO* B = A->esq;
 	A->esq = B->dir;
 	B->dir = A;
@@ -48,10 +51,10 @@ struct NO* rotDireita(struct NO* A){
 
 struct NO* balancear(struct NO* h){
 	if(cor(h->dir) == RED){
-	 h = rotEsquerda(h); //n� vermelho � sempre filho esquerdo
+	 h = rotEsquerda(h); //nó vermelho é sempre filho esquerdo
 	}
 	if(h->esq !=NULL && cor(h->dir) == RED && cor(h->esq->esq) == RED){
-		h = rotDireita(h); //Filho direito e neto esquerdo s�o vermelhos
+		h = rotDireita(h); //Filho direito e neto esquerdo são vermelhos
 	}
 	if(cor(h->esq) == RED && cor(h->dir) == RED){
 		trocaCor(h); //2 filhos vermelhos troca a cor
@@ -72,6 +75,7 @@ struct NO* insereNO(struct NO* h, int valor, int *resp){
 	if(h == NULL){
 		struct NO *novo;
 		novo = (struct NO*) malloc(sizeof(struct NO));
+		
 		if(novo == NULL){
 			*resp = 0;
 			return NULL;
@@ -81,6 +85,8 @@ struct NO* insereNO(struct NO* h, int valor, int *resp){
 		novo->dir = NULL;
 		novo->esq = NULL;
 		*resp = 1;
+		
+		printf("\n Novo no com valor %d", valor);
 		return novo;
 	}
 	
@@ -119,4 +125,8 @@ struct NO* busca_ArvoreRB(struct NO* h, int valor) {
         return busca_ArvoreRB(h->dir, valor);
     }
 }
+
+
+
+
 
