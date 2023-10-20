@@ -7,11 +7,13 @@ int main() {
 
 	insere_ArvoreRB(&raiz, 10);
 	insere_ArvoreRB(&raiz, 5);
+	insere_ArvoreRB(&raiz, 8);
 	insere_ArvoreRB(&raiz, 15);
 	insere_ArvoreRB(&raiz, 3);
 	insere_ArvoreRB(&raiz, 7);
 	insere_ArvoreRB(&raiz, 12);
 	insere_ArvoreRB(&raiz, 18);
+	insere_ArvoreRB(&raiz, 1);
 
     // Realizar uma busca na árvore
     int busca = 15;
