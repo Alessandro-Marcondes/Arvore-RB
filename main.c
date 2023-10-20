@@ -3,26 +3,24 @@
 #include "rb.h"
 
 int main() {
-    ArvoreRB raiz = NULL; // Inicializa a árvore
+    ArvoreRB raiz = NULL; // Inicializa a Ã¡rvore
 
+	insere_ArvoreRB(&raiz, 10);
+	insere_ArvoreRB(&raiz, 5);
+	insere_ArvoreRB(&raiz, 15);
+	insere_ArvoreRB(&raiz, 3);
+	insere_ArvoreRB(&raiz, 7);
+	insere_ArvoreRB(&raiz, 12);
+	insere_ArvoreRB(&raiz, 18);
 
-    int valores[] = {10, 5, 15, 3, 7, 12, 18};
-    int numValores = sizeof(valores) / sizeof(valores[0]);
-	int i;
-    for (i = 0; i < numValores; i++) {
-        int resp;
-        insere_ArvoreRB(&raiz, valores[i]);
-        printf("Inserindo o valor %d na árvore\n", valores[i]);
-    }
-
-    // Realizar uma busca na árvore
+    // Realizar uma busca na Ã¡rvore
     int busca = 15;
     struct NO* resultado = busca_ArvoreRB(raiz, busca);
 
     if (resultado != NULL) {
         printf("Valor %d encontrado\n", busca);
     } else {
-        printf("Valor %d não encontrado\n", busca);
+        printf("Valor %d nÃ£o encontrado\n", busca);
     }
 
     return 0;
